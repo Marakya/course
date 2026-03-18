@@ -79,6 +79,39 @@ docker run --name telegram-bot --rm -p 8000:8000 telegram-bot
 
 ---
 
+## Отправить образ на DockerHub
+
+Авторизоваться в DockerHub:
+```bash
+docker login
+```
+
+Ввести данные:
+```bash
+Username: user
+Password: <пароль или access token>
+```
+
+Создать в DockerHub репозиторий, например с именем mybot и запустить сборку (user - ваше имя пользователя на DockerHub):
+```bash
+docker build -t user/mybot .
+```
+
+Отправить образ в DockerHub:
+```bash
+docker push user/mybot:latest
+```
+
+Если же необходимо взять готовый образ/или ваш:
+```bash
+docker pull user/mybot:latest
+```
+
+Запуск контейнера:
+```bash
+docker run user/mybot:latest
+```
+
 ## ☁️ Развёртывание на виртуальной машине (например, Яндекс Облако)
 
 Чтобы запустить бота на сервере:
